@@ -5,45 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu primeiro e-commerce</title>
     <link rel="stylesheet" type="text/css" href="site/site.css">
+    <script src="js/app.js" defer></script>
 </head>
 <body>
     <div class="header">
-        <h1>Loja de Roupas e Acessórios</h1>
+        <h1>Loja de Roupas</h1>
        </div>
-        <div class="topnav">
-            <a href="#">Home</a>
-            <a href="#">Roupas</a>
-            <a href="#">Acessórios</a>
-            <a href="#" style="float:right">
-                <img src="imgs/compra.png" alt="Carrinho" class="carrinho">
-                Carrinho de Compras
-            </a>
-           </div>
-            <div class="sellcard">
-                <div class="produto">
-                    <img src="imgs/bone.jpg" alt="bone">
-                    <p class="descricao">Boné Estiloso</p>
-                    <p class="valor">R$ 79,00</p>
+       <div class="topnav">
+        <a href="#">Home</a>
+        <a href="#">Roupas</a>
+        <a href="#">Acessórios</a>
+        <a href="#" class="carrinho-link">
+            <img src="imgs/compra.png" alt="Carrinho" class="carrinho">
+            Carrinho de Compras
+        </a>
+       </div>
+       <div class="filtros">
+        <div class="filtro-grupo">
+            <label for="filtroTipo">Categoria:</label>
+            <select id="filtroTipo">
+                <option value="todos">Todos os tipos</option>
+                <option value="camiseta">Camiseta</option>
+                <option value="moletom">Moletom</option>
+            </select>
+        </div>
+
+        <div class="filtro-grupo">
+            <label for="ordenarPreco">Ordenação:</label>
+            <select id="ordenarPreco">
+                <option value="padrao">Ordenar por</option>
+                <option value="menorPreco">Menor Preço</option>
+                <option value="maiorPreco">Maior Preço</option>
+            </select>
+        </div>
+
+        <div class="filtro-preco">
+            <label for="precoRange">Filtrar por preço: <span id="precoSelecionado">R$ 0 - R$ 400</span></label>
+            <div class="range-container">
+                <span>R$ 0</span>
+                <input type="range" id="precoRange" min="0" max="400" value="400" class="preco-range">
+                <span>R$ 400</span>
+            </div>
+        </div>
+    </div>
+
+            <div class="sellcard" id="produtos">
+                <div class="produto" data-tipo="camiseta" data-preco="210">
+                    <img src="imgs/32423-photoroom_1080x1080+fill_ffffff.png" alt="camiseta">
+                    <p class="descricao">Class GoodFellas</p>
+                    <p class="valor">R$ 210,00</p>
                     <button>COMPRAR</button>
                 </div>
                 
-                <div class="produto">
-                    <img src="imgs/jaqueta.jpg" alt="jaqueta">
-                    <p class="descricao">Jaqueta de Couro</p>
-                    <p class="valor">R$ 279,00</p>
+                <div class="produto" data-tipo="camiseta" data-preco="199">
+                    <img src="imgs/673278c5f09dclas_ass_branco.avif" alt="camiseta">
+                    <p class="descricao">Class C+🍑</p>
+                    <p class="valor">R$ 199,00</p>
                     <button>COMPRAR</button>
                 </div>
                 
-                <div class="produto">
-                    <img src="imgs/bone.jpg" alt="bone">
-                    <p class="descricao">Boné Estiloso</p>
-                    <p class="valor">R$ 79,00</p>
+                <div class="produto" data-tipo="moletom" data-preco="350">
+                    <img src="imgs/13102022201245445.webp" alt="moletom">
+                    <p class="descricao">Moletom Piet </p>
+                    <p class="valor">R$ 350,00</p>
                     <button>COMPRAR</button>
                 </div>
                 
-                <div class="produto">
-                    <img src="imgs/jaqueta.jpg" alt="jaqueta">
-                    <p class="descricao">Jaqueta de Couro</p>
+                <div class="produto" data-tipo="camiseta" data-preco="279">
+                    <img src="imgs/images.jpg" alt="camiseta">
+                    <p class="descricao">Ciena Spetacle</p>
                     <p class="valor">R$ 279,00</p>
                     <button>COMPRAR</button>
                 </div>

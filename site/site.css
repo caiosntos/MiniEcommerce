@@ -1,11 +1,17 @@
 body {
     background-color: #f0f0f0;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    font-family: Arial, Helvetica, sans-serif ;
 }
 
 .header {
-    padding: 30px;
+    grid-column: 1 / 3;
+    background-color: #f0f0f0;
+    padding: 20px;
     text-align: center;
-    background: white;
+    font-size: 50px;
    }
 
    .header h1 {
@@ -13,14 +19,17 @@ body {
    }
 
    .topnav {
+    grid-column: 1 / 3;
     overflow: hidden;
-    background-color: #333;
+    background-color: #f5f5f5;
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
    }
 
    .topnav a {
     float: left;
     display: block;
-    color: #f2f2f2;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -30,26 +39,92 @@ body {
     background-color: #ddd;
     color: black;
    }
+
+   .topnav a.carrinho-link {
+    float: right;
+    display: flex;
+    align-items: center;
+}
    .carrinho{
     width: 20px;
     vertical-align: middle; 
     margin-right: 5px;
    }
 
-   .sellcard{
+   .filtros {
+    grid-column: 1 / 3;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; 
+    gap: 20px;
     padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filtro-grupo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 200px;
+}
+
+.filtro-grupo label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.filtros select {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.filtro-preco {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    min-width: 250px;
+}
+
+.range-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.preco-range {
+    flex: 1;
+    height: 5px;
+    border-radius: 5px;
+}
+
+.preco-valores {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+   .sellcard{
+    grid-column: 1 / 3;
+    display: grid;
+    gap: 20px; 
+    padding: 20px; 
+    grid-template-columns: repeat(4, 1fr);
    }
 
    .produto{
-    width: 21.0%;
     text-align: center;
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 10px;
     background: #f9f9f9;
+    overflow: hidden;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
    }
 
@@ -57,7 +132,14 @@ body {
     width: 40%;
     margin: auto;
     display: block;
+    object-fit: cover;
+    cursor: pointer;
     border-radius: 8px;
+    transition: transform 0.5s;
+   }
+
+   .produto:hover img{
+    transform: scale(1.5);
    }
 
    .descricao{
@@ -98,3 +180,98 @@ body {
         background: #0078ff; 
       }
 
+      
+
+      @media (max-width: 780px) {
+        body {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+      
+        .header, .topnav {
+          grid-column: auto;
+          text-align: center;
+        }
+      
+        .topnav {
+          display: flex;
+          gap: 32px;
+          list-style: none;
+          justify-content: center; 
+          align-items: center;   
+          text-align: center;
+        }
+      
+        .topnav a {
+          font-size: 18px;
+          padding-block: 16px;
+        }
+
+        .filtros {
+          flex-direction: column;
+          align-items: stretch;
+          }
+      
+        .sellcard{
+        flex-wrap: wrap;
+        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        padding: 10%;
+        } 
+
+        .produto{
+          width: 50%;
+          text-align: center;
+          padding: 15px;
+          border: 1px solid #ccc;
+          border-radius: 10px;
+          background: #f9f9f9;
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+         }
+      
+         .produto img{
+          width: 80%;
+          margin: auto;
+          display: block;
+          border-radius: 8px;
+         }
+      
+         .descricao{
+          text-align: center;
+          font-size: 15px;
+          font-family: Arial, Helvetica, sans-serif;
+          font-style: normal;
+         }
+      
+         .valor{
+          text-align: center;
+          font-size: 0.8em;
+          font-family: Arial, Helvetica, sans-serif;
+         }
+      
+         .produto button {
+              outline: none;
+              height: 25px;
+              text-align: center;
+              width: 100%;
+              margin: 10px 0;
+              border-radius: 10px;
+              background: #333;
+              border: 5px solid #333;
+              border: none;
+              color: white; 
+              letter-spacing: 1px;
+              text-shadow: none;
+              font-size: 12px; 
+              font-weight: bold;
+              cursor: pointer;
+              transition: all 0.25s ease;
+              margin-top: 20px;
+            }
+            
+            button:hover {
+              color: white;
+              background: #0078ff; 
+            }
+      }
